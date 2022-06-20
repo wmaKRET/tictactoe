@@ -3,6 +3,28 @@ import Field from "./Field"
 import "./App.css"
 
 function App() {
+  const [fields, setFields] = React.useState(newFields())
+
+  function createNewField(){
+    return {
+      id: Math.floor(Math.random() * Date.now()),
+      value: "",
+      isMarked: false
+    }
+  }
+
+  function newFields(){
+    return new Array(9).fill().map(item => createNewField())
+  }
+
+  const fieldElements = fields.map(field => (
+    <Field 
+      key={field.id}
+      value={field.value}
+      isMarked={field.isMarked}
+    />
+  ))
+
   return (
     <main className="container">
       <div className="header">
@@ -15,7 +37,7 @@ function App() {
         </div>
       </div>
       <div className="game">
-        <Field />      
+        {fieldElements}     
       </div>
     </main>
   )

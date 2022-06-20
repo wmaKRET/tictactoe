@@ -67,9 +67,15 @@ body {
   border-radius: 5px;
 }
 
+.game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
 .game__field {
-  height: 60px;
-  width: 60px;
+  height: 80px;
+  width: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
